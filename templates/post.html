@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block meta_desc %}{{ article.name }}. {{ description }}{% endblock %}
+{% block meta_keywords %}{{ keywords }}{% endblock %}
+
+{% block title %}{{ article.name }}{% endblock %}
+
+{% block main %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ article.image }}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{article.name | upper }}</h1>
+          <h2 class="subheading">{{article.category}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{ article.content | safe }}
+        <br>
+        джерело: <a href="{{article.source}}">{{article.source}}</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>
+{% endblock main %}
